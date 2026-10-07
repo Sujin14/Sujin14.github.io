@@ -277,9 +277,17 @@ body::before{content:"";position:fixed;inset:-10%;z-index:0;pointer-events:none;
 .mini .dot{box-shadow:inset 0 0 0 1.5px var(--a2)}.mini .dot.f{background:var(--a2)}
 .scrolled .pill{background:rgba(255,255,255,.55)}
 .el.sel{background:var(--grad)!important}.el.sel .n,.el.sel .nm{color:rgba(255,255,255,.85)}
+#gate{position:fixed;inset:0;z-index:999;background:var(--paper);display:grid;place-items:center;text-align:center;padding:24px;transition:opacity .7s var(--ease),visibility .7s}
+#gate.out{opacity:0;visibility:hidden}
+#gate .g{display:grid;gap:22px;justify-items:center}
+#gate .g small{font:500 12px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+#gate .g h1{font-size:clamp(34px,6vw,64px);letter-spacing:-.04em;line-height:1;font-weight:700}
+#gate .g h1 em{font-family:var(--serif);font-weight:400;background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
 </style>
 </head>
 <body>
+<div id="gate"><div class="g"><small>Sound on for the intro</small><h1>Hi, I'm <em>Sujin.</em></h1><button class="btn pri" id="enter" type="button">Enter portfolio ▶</button></div></div>
+
 <div id="prog"></div>
 
 <header class="nav" id="top">
@@ -569,7 +577,8 @@ const PLAY='<path d="M4 2l10 6-10 6z"/>',PAUSE='<path d="M3 2h3.5v12H3zM9.5 2H13
 let wantSound=true,blocked=false,heroVisible=true,done=false;
 function paintSnd(){const on=!v.muted&&!v.paused;sI.innerHTML=on?PAUSE:PLAY;snd.setAttribute('aria-label',on?'Turn intro voice off':'Turn intro voice on');snd.classList.toggle('ping',blocked)}
 function tryPlay(){v.muted=false;const p=v.play();if(p)p.then(()=>{blocked=false;paintSnd()}).catch(()=>{blocked=true;v.muted=true;v.play().catch(()=>{});paintSnd()})}
-tryPlay();
+const gate=document.getElementById('gate');document.documentElement.classList.add('lock');
+document.getElementById('enter').addEventListener('click',()=>{gate.classList.add('out');document.documentElement.classList.remove('lock');setTimeout(()=>gate.remove(),800);scrollTo(0,0);tryPlay()});
 function unlock(){if(blocked&&wantSound&&heroVisible){v.muted=false;v.play().catch(()=>{});blocked=false;paintSnd()}removeEventListener('pointerdown',unlock);removeEventListener('keydown',unlock);removeEventListener('touchend',unlock)}
 addEventListener('pointerdown',unlock);addEventListener('keydown',unlock);addEventListener('touchend',unlock);
 snd.addEventListener('click',e=>{e.stopPropagation();if(done){done=false;v.currentTime=0;wantSound=true;v.muted=false;v.play().catch(()=>{});paintSnd();return}if(v.muted||v.paused){wantSound=true;blocked=false;v.muted=false;v.play().catch(()=>{});}else{wantSound=false;v.muted=true}paintSnd()});
