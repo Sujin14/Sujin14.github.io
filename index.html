@@ -161,6 +161,8 @@ header.nav>*{pointer-events:auto}
 .panel.open .body{opacity:1;pointer-events:auto;transition-delay:.3s}
 .body .l{display:flex;flex-direction:column;gap:14px;min-width:0;overflow:auto}
 .body .k{font:500 11px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--mute)}
+.body .ttl{display:flex;align-items:center;gap:14px}
+.appicon{width:56px;height:56px;flex:none;border-radius:14px;object-fit:cover;box-shadow:0 0 0 1px var(--line),0 8px 20px rgba(0,0,0,.08)}
 .body h3{font-size:clamp(28px,3.6vw,48px);font-weight:700;letter-spacing:-.045em;line-height:1}
 .body .d{color:var(--ink-2);font-size:15.5px}
 .feat{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:8px 18px;font-size:13.5px;color:var(--ink-2)}
@@ -447,9 +449,9 @@ body::before{content:"";position:fixed;inset:-10%;z-index:0;pointer-events:none;
     <h2 class="h2"><span class="rv-mask"><span>Education &amp; work,</span></span><span class="rv-mask" style="--i:1"><span>one <em>path.</em></span></span></h2>
     <div class="tl" id="tl">
       <div class="spineL"><i id="spineFill"></i></div>
-      <article class="stop"><p class="y">June 2020 – May 2024</p><h3>B.Tech in Computer Science</h3><p class="pl">Providence College of Engineering · Kerala Technological University</p></article>
+      <article class="stop"><p class="y">June 2020 – May 2024</p><h3>B.Tech in Computer Science</h3><p class="pl">Providence College of Engineering · APJ Abdul Kalam Technological University (KTU)</p></article>
       <article class="stop"><p class="y">Nov 2024 – Sept 2025</p><h3>Mobile Application Development using Flutter</h3><p class="pl">Brototype</p><p class="dt"><a class="u" href="https://drive.google.com/file/d/1CZFpa36qY9fmoBrwY0pBN5yAZmMmnwf8/view?usp=sharing" target="_blank" rel="noopener">View certificate ↗</a></p></article>
-      <article class="stop"><p class="y">Jan 2026 – Oct 2026 · Kozhikode</p><h3>Flutter Developer (Full Stack)</h3><p class="pl"><a class="u" href="https://www.finsl.co/" target="_blank" rel="noopener">FinslVerse Private Limited ↗</a></p><p class="dt">Sole developer on two fintech products: the Finsl Family App, shipped to Google Play in July 2026, and Finsl for Schools, a multi-tenant SaaS that is pilot-ready.</p></article>
+      <article class="stop"><p class="y">Jan 2026 – 15 Oct 2026 · Kozhikode</p><h3>Flutter Developer (Full Stack)</h3><p class="pl"><a class="u" href="https://www.finsl.co/" target="_blank" rel="noopener">FinslVerse Private Limited ↗</a></p><p class="dt">Sole developer on two fintech products: the Finsl Family App, shipped to Google Play in July 2026, and Finsl for Schools, a multi-tenant SaaS that is pilot-ready.</p></article>
       <article class="stop" style="padding-bottom:0"><div class="next"><h3>Next — <em>Your team?</em></h3><button class="btn pri" type="button" data-connect>Let's talk</button></div></article>
     </div>
   </div>
@@ -510,40 +512,51 @@ const IC={
  sms:'<path d="M4 5h16v11H9l-5 4z"/><path d="M8 10h8M8 13h5"/>',
  qr:'<rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3v3h-3zM20 14v.01M14 20h3M20 17v4"/>',
  scan:'<path d="M4 8V5a1 1 0 0 1 1-1h3M16 4h3a1 1 0 0 1 1 1v3M20 16v3a1 1 0 0 1-1 1h-3M8 20H5a1 1 0 0 1-1-1v-3"/><path d="M8 12h8"/>',
- tool:'<path d="M14 6a4 4 0 0 0 5 5l-9 9a2.5 2.5 0 0 1-3.5-3.5l9-9a4 4 0 0 0-1.5-1.5z"/>'
+ tool:'<path d="M14 6a4 4 0 0 0 5 5l-9 9a2.5 2.5 0 0 1-3.5-3.5l9-9a4 4 0 0 0-1.5-1.5z"/>',
+ call:'<path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a1 1 0 0 1-1 1A16 16 0 0 1 4 5a1 1 0 0 1 1-1z"/>',
+ spark:'<path d="M12 3l2.2 6.8L21 12l-6.8 2.2L12 21l-2.2-6.8L3 12l6.8-2.2z"/>',
+ heart:'<path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/>',
+ terminal:'<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 9l3 3-3 3M13 15h4"/>',
+ clock:'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>'
 };
 const lineIcon=k=>`<svg viewBox="0 0 24 24" fill="none" stroke="#0d0d0d" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round">${IC[k]||IC.code}</svg>`;
 const BRANDGLOW={flutter:'#02569b',dart:'#0175c2',python:'#3776ab',fastapi:'#009688',postgres:'#336791',redis:'#dc382d',aws:'#ff9900',actions:'#2088ff',nginx:'#009639',firebase:'#ffca28',git:'#f05032',figma:'#a259ff',vscode:'#007acc',kotlin:'#7f52ff',pytest:'#0a9edc',razorpay:'#0c2451',whatsapp:'#25d366'};
 const logoSvg=k=>{let s=LOGOS[k];if(!s)return '';if(k==='razorpay'||k==='whatsapp')s=s.replace('<svg','<svg fill="'+BRANDGLOW[k]+'"');return s.replace(/<svg/,'<svg role="img" focusable="false"');};
 
 /* ---------- data (everything comes from the résumé) ---------- */
-const FAMS=['Mobile','Backend','Cloud & DevOps','Integrations','Testing & Tools','Fundamentals'];
-const FA='Finsl Family App',FS='Finsl for Schools',YF='YeetFit';
+const FAMS=['Mobile','Backend','Firebase','Cloud & DevOps','Integrations','Testing & Tools','Fundamentals'];
+const FA='Finsl Family App',FS='Finsl for Schools',YF='YeetFit',YC='YeetCoach',KI='Kitchenary',ZP='Z Play';
 // [name, symbol, family, logo key, line icon, used in]
 const SK=[
-['Flutter','Fl',0,'flutter','',[FA,FS,YF,'Z Play']],['Dart','Da',0,'dart','',[FA,FS,YF,'Z Play']],['Clean Architecture','Ca',0,'','layers',[YF]],['MVVM','Mv',0,'','layers',[]],
-['Riverpod','Rp',0,'','layers',[FS,YF]],['BLoC / Cubit','Bl',0,'','layers',[]],['Provider','Pv',0,'','layers',[]],['Android Kotlin','Kt',0,'kotlin','',[FA]],
-['FastAPI','Fa',1,'fastapi','',[FA,FS]],['Python','Py',1,'python','',[FA,FS]],['REST APIs','Re',1,'','link',[]],['PostgreSQL','Pg',1,'postgres','',[FA]],
-['Alembic','Al',1,'','db',[]],['Redis','Rd',1,'redis','',[FA]],['JWT auth','Jw',1,'','key',[FS]],
-['AWS','Aw',2,'aws','',[FA,FS]],['ECS Fargate','Ec',2,'','server',[FA]],['EC2','E2',2,'','server',[FS]],['RDS','Rs',2,'','db',[FA]],['S3','S3',2,'','cloud',[FA,FS]],
-['CloudFront','Cf',2,'','cloud',[FS]],['CloudWatch','Cw',2,'','cloud',[FA]],['IAM','Ia',2,'','shield',[]],['GitHub Actions','Ga',2,'actions','',[FS]],['nginx','Nx',2,'nginx','',[FS]],
-['UPI QR flows','Up',3,'','qr',[FA,FS]],['Razorpay','Rz',3,'razorpay','',[YF]],['WhatsApp Business API','Wa',3,'whatsapp','',[FS]],['Firebase','Fb',3,'firebase','',[YF]],
-['FCM','Fc',3,'','bell',[]],['Firestore','Fs',3,'','db',[YF]],['AWS Textract OCR','Tx',3,'','scan',[FS]],['DLT SMS','Dl',3,'','sms',[FA]],
-['Flutter tests','Ft',4,'','test',[FA,FS]],['pytest','Pt',4,'pytest','',[]],['Flutter DevTools','Dt',4,'','tool',[]],['Git','Gi',4,'git','',[]],['Figma','Fg',4,'figma','',[]],['VS Code','Vs',4,'vscode','',[]],
-['OOP','Oo',5,'','brain',[]],['Data Structures & Algorithms','Ds',5,'','brain',[]],['SOLID','So',5,'','brain',[]],['Design Patterns','Dp',5,'','brain',[]]
+['Flutter','Fl',0,'flutter','',[FA,FS,YF,YC,KI,ZP]],['Dart','Da',0,'dart','',[FA,FS,YF,YC,KI,ZP]],['Android (Kotlin)','Kt',0,'kotlin','',[FA,YF,YC]],['Clean Architecture','Ca',0,'','layers',[YF,YC]],
+['MVVM','Mv',0,'','layers',[ZP]],['Riverpod','Rp',0,'','layers',[FS,YF]],['BLoC / Cubit','Bl',0,'','layers',[]],['GetX','Gx',0,'','layers',[YC]],
+['Provider','Pv',0,'','layers',[KI]],['GoRouter','Gr',0,'','link',[FS,YF,KI]],['Hive','Hv',0,'','db',[KI,ZP]],['Material 3','M3',0,'','layers',[KI,ZP]],
+['FastAPI','Fa',1,'fastapi','',[FA,FS]],['Python','Py',1,'python','',[FA,FS]],['REST APIs','Re',1,'','link',[FA,FS,KI]],['PostgreSQL','Pg',1,'postgres','',[FA,FS]],
+['Alembic','Al',1,'','db',[FA,FS]],['Redis','Rd',1,'redis','',[FA]],['JWT auth','Jw',1,'','key',[FS]],['Node.js Cloud Functions','Nj',1,'','code',[YF,YC]],
+['Firebase Auth','Fb',2,'firebase','',[YF,YC]],['Cloud Firestore','Fs',2,'','db',[YF,YC]],['Cloud Functions','Cl',2,'','server',[YF,YC]],['FCM','Fc',2,'','bell',[FA,YF,YC]],['Storage','St',2,'','cloud',[YF,YC]],
+['AWS','Aw',3,'aws','',[FA,FS]],['ECS Fargate','Ec',3,'','server',[FA]],['EC2','E2',3,'','server',[FS]],['RDS','Rs',3,'','db',[FA]],['ElastiCache','El',3,'','db',[FA]],['S3','S3',3,'','cloud',[FA,FS]],
+['CloudFront','Cf',3,'','cloud',[FS]],['Lambda','La',3,'','code',[FS]],['Textract','Tx',3,'','scan',[FS]],['CloudWatch','Cw',3,'','cloud',[FA]],['IAM','Ia',3,'','shield',[FA,FS]],['ACM','Ac',3,'','shield',[FS]],
+['GitHub Actions','Ga',3,'actions','',[FS]],['nginx','Nx',3,'nginx','',[FS]],['Linux','Lx',3,'','terminal',[FS]],['cron','Cr',3,'','clock',[FS]],
+['UPI QR payments','Up',4,'','qr',[FA,FS]],['WhatsApp Business API','Wa',4,'whatsapp','',[FS]],['WebRTC (Metered)','Wr',4,'','call',[YF,YC]],['Google Gemini API','Gm',4,'','spark',[YF]],
+['Health Connect','Hc',4,'','heart',[YF]],['OTP via DLT SMS','Dl',4,'','sms',[FA]],
+['Flutter tests','Ft',5,'','test',[FA,FS,KI]],['pytest','Pt',5,'pytest','',[FA,FS]],['Flutter DevTools','Dt',5,'','tool',[FA]],['Git','Gi',5,'git','',[]],['GitHub','Gh',5,'','code',[]],
+['Figma','Fg',5,'figma','',[]],['Cursor','Cu',5,'','code',[]],['Android Studio','As',5,'','tool',[]],['VS Code','Vs',5,'vscode','',[]],
+['OOP','Oo',6,'','brain',[]],['Data Structures & Algorithms','Ds',6,'','brain',[]],['SOLID','So',6,'','brain',[]],['Design Patterns','Dp',6,'','brain',[]]
 ];
 const WORK=[
-{n:'01',k:'Live on Google Play · 2026',t:'Finsl Family App',d:'UPI-based pocket money, chores, and rewards for families. Sole developer across Flutter, FastAPI, and AWS.',f:['OTP parent auth and child onboarding','Chore management, XP and level progression','UPI scan-and-pay with parent approval','Static vs. dynamic QR handling','Kotlin listener for UPI gift-payment notifications','DLT SMS registration for OTP delivery','243 Flutter and 227 backend tests'],tech:[['flutter','Flutter'],['fastapi','FastAPI'],['aws','AWS'],['postgres','PostgreSQL'],['redis','Redis'],['kotlin','Kotlin']],links:[['View on Google Play ↗','https://play.google.com/store/apps/details?id=com.finsl.finsl',1]],ui:'family'},
-{n:'02',k:'Multi-tenant SaaS · Pilot-ready',t:'Finsl for Schools',d:'Multi-tenant SaaS for weekly student savings, with parents paying via UPI. Sole developer; pilot-ready.',f:['Tenant isolation and role-based access: admin, accountant, teacher, principal','AWS Textract OCR reads UTR, amount and payee','UTR format, amount cap, fuzzy name match and dedup rules','WhatsApp Business reminders on a weekly job','Single-use JWT password reset tokens','CI/CD with auto-migrations on AWS','675 backend and 368 Flutter widget tests'],tech:[['flutter','Flutter Web'],['fastapi','FastAPI'],['aws','AWS'],['whatsapp','WhatsApp API'],['nginx','nginx'],['actions','GitHub Actions']],links:[['Visit school-os.finsl.co ↗','https://school-os.finsl.co',1]],ui:'school'},
-{n:'03',k:'Flutter · Personal project',t:'YeetFit',d:'AI fitness tracker with Google and email auth, Razorpay subscription payments with entitlement gating, and health tracking on Firestore. Built with Clean Architecture and Riverpod.',f:['Google and email sign-in','Razorpay subscriptions','Entitlement gating','Food, steps, water, sleep and weight tracking','AI fitness coach chat','Clean Architecture with Riverpod'],tech:[['flutter','Flutter'],['firebase','Firebase'],['razorpay','Razorpay']],links:[['View on GitHub ↗','https://github.com/Sujin14/yeetfit',1],['APK ↗','https://apkpure.net/yeetfit/com.sujin.yeetfit',0]],ui:'fit'},
-{n:'04',k:'In progress',t:'YeetFit Trainers',d:'The admin app for YeetFit. I am renaming it and reshaping it into a tool that is useful for trainers.',f:[],tech:[['flutter','Flutter']],links:[],ui:'trainers'},
-{n:'05',k:'Flutter · Personal project',t:'Z Play',d:'Offline music player with local playback using just_audio, background play, and playlists and favorites persisted in Hive. Material 3 UI with custom player controls.',f:['Local playback with just_audio','Background play','Playlists and favorites in Hive','Material 3 UI','Custom player controls'],tech:[['flutter','Flutter'],['dart','Dart']],links:[['View on GitHub ↗','https://github.com/Sujin14/Z-Play',1],['APK ↗','https://apkpure.net/z-play/com.sujin.musicplayer',0]],ui:'music'}
+{n:'01',k:'Live on Google Play · 2026',t:'Finsl Family App',d:'UPI-based pocket money, chores, and rewards for families. Sole developer across Flutter, FastAPI, and AWS.',f:['OTP parent auth and child onboarding','Chore management, XP and level progression','UPI scan-and-pay with parent approval','Static vs. dynamic QR handling','Kotlin listener for UPI gift-payment notifications','DLT SMS registration for OTP delivery','243 Flutter and 227 backend tests'],tech:[['flutter','Flutter'],['fastapi','FastAPI'],['aws','AWS'],['postgres','PostgreSQL'],['redis','Redis'],['kotlin','Kotlin']],links:[['View on Google Play ↗','https://play.google.com/store/apps/details?id=com.finsl.finsl',1]],ui:'family',icon:'finsl.png'},
+{n:'02',k:'Multi-tenant SaaS · Pilot-ready',t:'Finsl for Schools',d:'Multi-tenant SaaS for weekly student savings, with parents paying via UPI. Sole developer; pilot-ready.',f:['Tenant isolation and role-based access: admin, accountant, teacher, principal','AWS Textract OCR reads UTR, amount and payee','UTR format, amount cap, fuzzy name match and dedup rules','WhatsApp Business reminders on a weekly job','Single-use JWT password reset tokens','CI/CD with auto-migrations on AWS','675 backend and 368 Flutter widget tests'],tech:[['flutter','Flutter Web'],['fastapi','FastAPI'],['aws','AWS'],['whatsapp','WhatsApp API'],['nginx','nginx'],['actions','GitHub Actions']],links:[['Visit school-os.finsl.co ↗','https://school-os.finsl.co',1]],ui:'school',icon:'finsl-schools.png'},
+{n:'03',k:'Flutter · Personal project',t:'YeetFit',d:'Fitness and coaching app with health tracking, an AI coach, and live audio and video calls with a personal coach, on a Firebase backend. Built with Clean Architecture, Riverpod and GoRouter.',f:['Food, water, sleep, steps (Health Connect), weight and mood tracking','Daily recovery score, challenges with leaderboards and live group sessions','AI coach chat and meal-photo scanning with Gemini via Cloud Functions','1:1 WebRTC audio and video calls with a native Kotlin lock-screen call screen','Call-readiness checks across Android OEM skins','Coach chat with multi-select delete for me'],tech:[['flutter','Flutter'],['firebase','Firebase'],['kotlin','Kotlin']],links:[['View on GitHub ↗','https://github.com/Sujin14/yeetfit',1],['APK ↗','https://apkpure.net/yeetfit/com.sujin.yeetfit',0]],ui:'fit',icon:'yeetfit.png'},
+{n:'04',k:'Flutter · Personal project',t:'YeetCoach',d:'The coach companion to YeetFit, sharing its Firebase backend: manage clients, build plans, run group sessions and take calls.',f:['Client requests and client profiles','Workout and diet plan builder','Group session scheduling','Client recovery analytics with week and month views','Chat inbox with unread counts and delete for me','Native Kotlin call handling with instant cold-start answering'],tech:[['flutter','Flutter'],['firebase','Firebase'],['kotlin','Kotlin']],links:[['View on GitHub ↗','https://github.com/Sujin14/yeetcoach',1]],ui:'coach',icon:'yeetcoach.png'},
+{n:'05',k:'Flutter · Personal project',t:'Kitchenary',d:'A free recipe app for India that takes you from learning a dish to ordering its ingredients to cooking it hands-free with timers.',f:['MVC with Provider and dependency-injected services','Offline-first recipe cache built as a decorator','Cooking-mode timers that survive backgrounding, suggested from step text','Ingredient scaler and deduplicated shopping list','Guided ordering through Blinkit, Zepto, Swiggy Instamart and BigBasket deep links','Material 3 theming with light and dark modes'],tech:[['flutter','Flutter'],['dart','Dart']],links:[['View on GitHub ↗','https://github.com/Sujin14/kitchenary',1]],ui:'kitchen',icon:'kitchenary.png'},
+{n:'06',k:'Flutter · Personal project',t:'Z Play',d:'Offline music player with background playback and lock-screen controls, rebuilt with feature-first MVVM and a Material 3 redesign.',f:['Background playback with just_audio and audio_service','Lock-screen and notification controls','Sleep timer and 10-second seek','Repeat and shuffle saved across restarts','Playlists and favourites in Hive','Feature-first MVVM architecture'],tech:[['flutter','Flutter'],['dart','Dart']],links:[['View on GitHub ↗','https://github.com/Sujin14/Z-Play',1],['APK ↗','https://apkpure.net/z-play/com.sujin.musicplayer',0]],ui:'music',icon:'zplay.png'}
 ];
 const UI={
  family:'<div class="mini"><b style="font-size:13px">Today\'s chores</b><div class="row"><i class="dot f"></i>Make the bed<span style="margin-left:auto">+20 XP</span></div><div class="row"><i class="dot"></i>Homework<span style="margin-left:auto">+30 XP</span></div><div class="row"><i class="dot"></i>Water the plants<span style="margin-left:auto">+10 XP</span></div><div class="bt">Scan to pay</div></div>',
  school:'<div class="mini"><b style="font-size:13px">Weekly savings</b><div class="tbl"><div class="bl"></div><div class="bl"></div><div class="bl"></div><div class="bl"></div><div class="bl"></div><div class="bl"></div><div class="bl"></div><div class="bl"></div><div class="bl"></div></div><div class="row"><i class="dot f"></i>Payment verified</div><div class="row"><i class="dot"></i>Awaiting parent</div><div class="bt">Review</div></div>',
  fit:'<div class="mini"><b style="font-size:13px">Today</b><div class="ring"><i>68%</i></div><div class="row">Steps<span style="margin-left:auto">—</span></div><div class="row">Water<span style="margin-left:auto">—</span></div><div class="bt">Ask coach</div></div>',
- trainers:'<div class="mini"><b style="font-size:13px">Trainers</b><div class="row"><i class="dot f"></i><span class="bl" style="flex:1"></span></div><div class="row"><i class="dot"></i><span class="bl" style="flex:1"></span></div><div class="row"><i class="dot"></i><span class="bl" style="flex:1"></span></div><div class="bt">In progress</div></div>',
+ coach:'<div class="mini"><b style="font-size:13px">Clients</b><div class="row"><i class="dot f"></i>Recovery<span style="margin-left:auto">74</span></div><div class="row"><i class="dot"></i>Plan<span style="margin-left:auto">Week 3</span></div><div class="row"><i class="dot"></i>Session<span style="margin-left:auto">6 PM</span></div><div class="bt">Call client</div></div>',
+ kitchen:'<div class="mini"><b style="font-size:13px">Cooking mode</b><div class="ring"><i>12:00</i></div><div class="row">Step 3 of 6<span style="margin-left:auto">Simmer</span></div><div class="row">Shopping list<span style="margin-left:auto">5 items</span></div><div class="bt">Order ingredients</div></div>',
  music:'<div class="mini"><div style="aspect-ratio:1;border-radius:16px;background:linear-gradient(135deg,#e9e6e0,#a9a6a0)"></div><b style="font-size:13px">Now playing</b><div class="bl"></div><div class="pl"><span>⏮</span><span style="width:38px;height:38px;border-radius:50%;background:var(--ink);color:#fff;display:grid;place-items:center">▶</span><span>⏭</span></div></div>'
 };
 
@@ -619,7 +632,7 @@ new IntersectionObserver((es,o)=>es.forEach(e=>{if(e.isIntersecting){const c=col
 const panels=$('#panels');
 panels.innerHTML=WORK.map((w,i)=>`<article class="panel${i===0?' open':''}" tabindex="0" data-i="${i}" aria-label="${w.t}">
  <div class="spine"><span class="n">${w.n}</span><span class="t">${w.t}</span><span class="p" aria-hidden="true">+</span></div>
- <div class="body"><div class="l"><p class="k">${w.n} — ${w.k}</p><h3>${w.t}</h3><p class="d">${w.d}</p>
+ <div class="body"><div class="l"><p class="k">${w.n} — ${w.k}</p><div class="ttl">${w.icon?`<img class="appicon" src="${w.icon}" alt="${w.t} app icon" width="56" height="56" loading="lazy" onerror="this.remove()">`:''}<h3>${w.t}</h3></div><p class="d">${w.d}</p>
  ${w.f.length?`<ul class="feat">${w.f.map(x=>`<li>${x}</li>`).join('')}</ul>`:''}
  <div class="tech">${w.tech.map(t=>`<span>${logoSvg(t[0])}${t[1]}</span>`).join('')}</div>
  ${w.links.length?`<div class="links">${w.links.map(l=>`<a class="btn ${l[2]?'pri':'sec'} sm" href="${l[1]}" target="_blank" rel="noopener">${l[0]}</a>`).join('')}</div>`:''}</div>
